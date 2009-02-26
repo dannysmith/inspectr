@@ -1,3 +1,27 @@
+#modal_window{
+    position:relative;
+    display:none;
+    z-index:1000;
+    padding:30px;
+}
+
+tr.standing_order {
+  background-color: #CFC;
+  border: solid 1px #6C6;
+}
+
+tr.discharged {
+  background-color: #FCC;
+  border: solid 1px #C66;
+}
+
+table img {
+	width: 1.5em;
+	height: 1.5em;
+}
+
+/*------------------------------------------*/
+
 body {
   background-color: #4B7399;
   font-family: Verdana, Helvetica, Arial;
