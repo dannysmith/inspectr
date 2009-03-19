@@ -3,7 +3,6 @@
 
 $(function() {
 	//Tablesorter code
-	$('head').append('<link rel="stylesheet" href="/stylesheets/tablesorter-blue/style.css" type="text/css" />');
 	$(".tablesorter").tablesorter();
 	
 	//Round the corners of the container

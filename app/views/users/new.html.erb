@@ -23,7 +23,7 @@
         <%= f.label :amount_per_month, "Subscriptions amount per Month" %><br />
         <%= f.text_field :amount_per_month %>
       </p>
-      <p><%= f.submit "Sign up" %></p>
+      <p><%= f.submit "Sign up", :class => "submit" %></p>
     <% end %>
 
     <%= link_to "Cancel", login_path, :class => "close" %>

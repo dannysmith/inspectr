@@ -14,7 +14,6 @@ class CadetsController < ApplicationController
   
   def new
     @cadet = Cadet.new
-    render :layout => false 
   end
   
   def create
@@ -30,7 +29,6 @@ class CadetsController < ApplicationController
   
   def edit
     @cadet = current_cadet
-    render :layout => false 
   end
   
   def update
