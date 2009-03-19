@@ -31053,3 +31053,15 @@ Processing UsersController#new (for 127.0.0.1 at 2009-03-19 21:54:25) [GET]
 Rendering template within layouts/application
 Rendering users/new
 Completed in 33ms (View: 14, DB: 0) | 200 OK [http://localhost/signup]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-03-19 21:55:11) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 14ms (View: 9, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-03-19 21:55:16) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Completed in 35ms (View: 16, DB: 0) | 200 OK [http://localhost/signup]
