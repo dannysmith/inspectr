@@ -8,8 +8,8 @@
     <h3>can I use it?</h3>
     <p>Of course! Just <%= link_to "sign up for an account", signup_path, :class => "popup" %> and start adding cadets.</p>
     <h3>it doesn't do what I want it to!</h3>
-    <p>Although this application is offered up for others to use, it was developed primarily for use at 226 Sqn. If you find something that's broken, or you really want a feature added (or you just want to say hi), send an email to <a href="mailto:danny@thescri.be">danny@thescri.be</a>!</p>
-    <p>The application is still under development and features will be added as and when they're needed. You can see the source code over at github.</p>
+    <p>Although this application is offered up for others to use, it was developed primarily for use at 226 Sqn. If you find something that's broken, or you really want a feature added (or you just want to say hi), send an email to <a href="mailto:<%= ADMIN_EMAIL %>"><%= ADMIN_EMAIL %></a>!</p>
+    <p>The application is still under development and features will be added as and when they're needed. You can see the source code over at <a href="http://github.com/dannysmith/inspectr">the github project page</a>.</p>
 </div>
 <div id="login_box">
     <h4>Sign In</h4>

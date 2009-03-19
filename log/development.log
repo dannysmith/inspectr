@@ -30593,3 +30593,127 @@ Processing SessionsController#new (for 127.0.0.1 at 2009-03-19 20:51:25) [GET]
 Rendering template within layouts/application
 Rendering sessions/new
 Completed in 364ms (View: 18, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing CadetsController#index (for 127.0.0.1 at 2009-03-19 21:01:29) [GET]
+Redirected to http://localhost:3000/login
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-03-19 21:01:29) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 235ms (View: 229, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-03-19 21:03:54) [POST]
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"K7KIiL4BK6ND1kfFREHD7ITixr6VA+N9iXlm6krbZJE=", "login"=>"666", "password"=>"madasafish"}
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."username" = '666') LIMIT 1[0m
+  [4;35;1mUser Exists (0.4ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."username" = '666' AND "users".id <> 3) LIMIT 1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'devil@aircadets.org' AND "users".id <> 3) LIMIT 1[0m
+  [4;35;1mUser Update (1.3ms)[0m   [0mUPDATE "users" SET "login_attempts" = 1, "updated_at" = '2009-03-19 21:03:55' WHERE "id" = 3[0m
+Login attempts for 666: 1}
+
+Updated current cadets areers by 1 months.
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mCadet Load (1.0ms)[0m   [0mSELECT * FROM "cadets" WHERE ("cadets".user_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mUser Exists (0.4ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."username" = '666' AND "users".id <> 3) LIMIT 1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'devil@aircadets.org' AND "users".id <> 3) LIMIT 1[0m
+  [4;35;1mCadet Update (0.6ms)[0m   [0mUPDATE "cadets" SET "balance" = 0.0, "updated_at" = '2009-03-19 21:03:55' WHERE "id" = 18[0m
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."username" = '666' AND "users".id <> 3) LIMIT 1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'devil@aircadets.org' AND "users".id <> 3) LIMIT 1[0m
+  [4;35;1mCadet Update (0.6ms)[0m   [0mUPDATE "cadets" SET "balance" = 6.0, "updated_at" = '2009-03-19 21:03:55' WHERE "id" = 19[0m
+  [4;36;1mUser Exists (0.4ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."username" = '666' AND "users".id <> 3) LIMIT 1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'devil@aircadets.org' AND "users".id <> 3) LIMIT 1[0m
+  [4;36;1mUser Update (1.1ms)[0m   [0;1mUPDATE "users" SET "last_login" = '2009-03-19 21:03:55', "updated_at" = '2009-03-19 21:03:55' WHERE "id" = 3[0m
+Redirected to http://localhost:3000/
+Completed in 1120ms (DB: 9) | 302 Found [http://localhost/sessions]
+
+
+Processing CadetsController#index (for 127.0.0.1 at 2009-03-19 21:03:55) [GET]
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mCadet Load (1.7ms)[0m   [0;1mSELECT * FROM "cadets" WHERE ("cadets".user_id = 3) [0m
+  [4;35;1mCadet Load (0.9ms)[0m   [0mSELECT * FROM "cadets" WHERE ("cadets".user_id = 3 AND ("cadets"."discharged" = 'f')) [0m
+Session User ID: #<User:0x21bff10>
+Rendering template within layouts/application
+Rendering cadets/index
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM "inspections" WHERE ("inspections".cadet_id = 18) [0m
+  [4;35;1mInspection Load (1.3ms)[0m   [0mSELECT * FROM "inspections" WHERE ("inspections".cadet_id = 18) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "inspections" WHERE ("inspections".cadet_id = 19) [0m
+  [4;35;1mInspection Load (1.1ms)[0m   [0mSELECT * FROM "inspections" WHERE ("inspections".cadet_id = 19) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "inspections" WHERE ("inspections".cadet_id = 18) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "inspections" WHERE ("inspections".cadet_id = 18) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "inspections" WHERE ("inspections".cadet_id = 19) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "inspections" WHERE ("inspections".cadet_id = 19) [0m
+Completed in 123ms (View: 79, DB: 7) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2009-03-19 21:04:38) [GET]
+Redirected to http://localhost:3000/
+Completed in 5ms (DB: 0) | 302 Found [http://localhost/logout/]
+
+
+Processing CadetsController#index (for 127.0.0.1 at 2009-03-19 21:04:38) [GET]
+Redirected to http://localhost:3000/login
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-03-19 21:04:38) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 46ms (View: 39, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-03-19 21:04:50) [POST]
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"K7KIiL4BK6ND1kfFREHD7ITixr6VA+N9iXlm6krbZJE=", "login"=>"666", "password"=>"madasafish"}
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."username" = '666') LIMIT 1[0m
+  [4;35;1mUser Exists (0.3ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."username" = '666' AND "users".id <> 3) LIMIT 1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'devil@aircadets.org' AND "users".id <> 3) LIMIT 1[0m
+  [4;35;1mUser Update (1.1ms)[0m   [0mUPDATE "users" SET "login_attempts" = 2, "updated_at" = '2009-03-19 21:04:50' WHERE "id" = 3[0m
+Login attempts for 666: 2}
+
+Updated current cadets areers by 0 months.
+  [4;36;1mUser Exists (0.4ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."username" = '666' AND "users".id <> 3) LIMIT 1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'devil@aircadets.org' AND "users".id <> 3) LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "last_login" = '2009-03-19 21:04:50', "updated_at" = '2009-03-19 21:04:50' WHERE "id" = 3[0m
+Redirected to http://localhost:3000/
+Completed in 46ms (DB: 4) | 302 Found [http://localhost/sessions]
+
+
+Processing CadetsController#index (for 127.0.0.1 at 2009-03-19 21:04:50) [GET]
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mCadet Load (1.0ms)[0m   [0;1mSELECT * FROM "cadets" WHERE ("cadets".user_id = 3) [0m
+  [4;35;1mCadet Load (1.0ms)[0m   [0mSELECT * FROM "cadets" WHERE ("cadets".user_id = 3 AND ("cadets"."discharged" = 'f')) [0m
+Session User ID: #<User:0x2256690>
+Rendering template within layouts/application
+Rendering cadets/index
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM "inspections" WHERE ("inspections".cadet_id = 18) [0m
+  [4;35;1mInspection Load (1.0ms)[0m   [0mSELECT * FROM "inspections" WHERE ("inspections".cadet_id = 18) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "inspections" WHERE ("inspections".cadet_id = 19) [0m
+  [4;35;1mInspection Load (1.0ms)[0m   [0mSELECT * FROM "inspections" WHERE ("inspections".cadet_id = 19) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "inspections" WHERE ("inspections".cadet_id = 18) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "inspections" WHERE ("inspections".cadet_id = 18) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "inspections" WHERE ("inspections".cadet_id = 19) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "inspections" WHERE ("inspections".cadet_id = 19) [0m
+Completed in 143ms (View: 79, DB: 6) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2009-03-19 21:05:26) [GET]
+Redirected to http://localhost:3000/
+Completed in 5ms (DB: 0) | 302 Found [http://localhost/logout/]
+
+
+Processing CadetsController#index (for 127.0.0.1 at 2009-03-19 21:05:26) [GET]
+Redirected to http://localhost:3000/login
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-03-19 21:05:26) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 45ms (View: 40, DB: 0) | 200 OK [http://localhost/login]

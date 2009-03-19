@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     user = User.authenticate(params[:login], params[:password])
     if user
       session[:user_id] = user.id #Sets user_id in the session hash so it can be reused.
-      flash[:notice] = "Welcome to inspectr. Please email any comments or suggestions to <a href=\"mailto:danny@thescri.be\">danny@thescri.be</a>." #default flash message
+      flash[:notice] = "Welcome to inspectr. Please email any comments or suggestions to <a href=\"mailto:#{ADMIN_EMAIL}\">#{ADMIN_EMAIL}</a>." #default flash message
       
       change = adjust_balances_if_monthchange(user) #See private methods, below.
       
