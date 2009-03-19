@@ -1,10 +1,10 @@
 Inspectr
 ========
-This application is running at [http://inspectr.thescri.be].
+This application is running at [inspectr.heroku.com](http://inspectr.heroku.com).
 
 It is a little app for managing subscriptions and inspection results for cadets. It's also part of an assignment for my computer science course at university.
 
-It's written in Rails 2.3 using jQuery for the JavaScript. Please feel free to fork and fiddle.
+It's written in Rails 2.3.2 using jQuery for the JavaScript. Please feel free to fork and fiddle.
 
 TODO
 ====
