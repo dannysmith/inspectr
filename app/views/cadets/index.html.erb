@@ -1,0 +1,95 @@
+<%- title "manage cadet records" %>
+
+<div id="tabs_container">
+    <ul>
+        <li><a href="#subs-tab"><span>Subs</span></a></li>
+        <li><a href="#inspections-tab"><span>Inspections</span></a></li>
+        <li><a href="#admin-tab"><span>Admin</span></a></li>
+    </ul>
+    <div id="subs-tab">
+        <p>This tab tracks your cadets subscriptions. Checking the "Pay (SO)" box will assign a payment of <%= pounds @amount_per_month %>.</p>
+        <p>Discharged cadets are marked with a red box. Once a discharged cadet has paid in full you should delete them by clicking the bin icon.</p>
+        <% form_tag :controller => :payment, :action => :create do %>
+        <table id ="subs_table" class="tablesorter">
+          <thead>
+            <tr>
+              <th>Surname</th>
+              <th>First Name</th>
+              <th>SO</th>
+              <th>Balance <%= Date.today.strftime("%b") %></th>
+              <th>Pay (SO)</th>
+              <th>Pay</th>
+              <th colspan="2">Admin</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for cadet in @cadets %>
+              <tr id="subs_cadet_id<%= cadet.id %>"<%= display_classes(cadet) %>> 
+                <td><%=h cadet.surname %></td>
+                <td><%=h cadet.firstname %></td>
+                <td><%= so_image(cadet) %></td>
+                <td><%= h pounds cadet.balance %></td>
+                <td><%= check_box_tag(cadet.id, @amount_per_month) if cadet.standing_order? %></td>
+                <td><%= text_field_tag("oa #{cadet.id}", nil, :size => 4, :maxsize => 4, :class => "other_amount") %></td>
+                <td><%= link_to image_tag("/images/edit.gif", :border=>0), edit_cadet_path(cadet), :class => "popup" %></td>
+                <td><%= link_to image_tag("/images/bin.gif", :border=>0), cadet, :confirm => 'Are you sure?', :method => :delete %></td>
+              </tr>
+            <%- end %>
+          </tbody>
+          <tbody>
+            <tr> 
+              <td colspan="4"></td>
+              <td><%= submit_tag "Make Payment" %></td>
+              <td colspan="3"></td>
+            </tr>
+          </tbody>
+        </table>
+        <%- end %>
+    </div> <!-- End Subs tab -->
+
+    <div id="inspections-tab">
+        <p>This tab shows the inspection results for your cadets. The cadet's average and their last four results are shown here. Those results that are lower than the squadron average of <strong><%= current_user.average_score %></strong> are highlighted in red.</p> 
+        <p>When adding an inspection, cadets who are not marked as absent will receive a mark of zero by default. Cadets marked absent will for an inspection will not have a score assigned and thus their average will remain unchanged.</p>
+        <% form_tag :controller => :inspection, :action => :create do %>
+        <table id ="inspection_table" class="tablesorter">
+          <thead>
+            <tr>
+              <th>Surname</th>
+              <th>First Name</th>
+              <th>Average Result</th>
+              <th colspan="4">Previous Inspections</th>
+              <th>Add</th>
+              <th>Absent?</th>
+              <th colspan="2">Admin</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for cadet in @current_cadets %>
+              <tr> 
+                <td><%=h cadet.surname %></td>
+                <td><%=h cadet.firstname %></td>
+                <td><%=h cadet.average_score %></td>
+                <%= scores_to_display(cadet) %>
+                <td><%= text_field_tag("cadet_score[#{cadet.id}]", nil, :size => 4, :maxsize => 4, :value => 0) %></td>
+                <td><%= check_box_tag('cadet_aa', cadet.id, checked=false, {:name => "cadet_aa[]", :id => "cadet#{cadet.id}_score" })  %></td>
+                <td><%= link_to image_tag("/images/edit.gif", :border=>0), edit_cadet_path(cadet), :class => "popup" %></td>
+                <td><%= link_to image_tag("/images/bin.gif", :border=>0), cadet, :confirm => 'Are you sure?', :method => :delete %></td>
+              </tr>
+            <%- end %>
+          </tbody>
+          <tbody>
+            <tr> 
+              <td colspan="7"></td>
+              <td colspan="4"><%= submit_tag "Submit Inspection" %></td>
+            </tr>
+          </tbody>
+        </table>
+        <%- end %>
+    </div> <!-- End Inspections tab -->
+    
+    <div id="admin-tab">
+        <p>This tab shows your user information.</p>
+        Standing Order Amount: <%= pounds @amount_per_month %><br />
+        Email Address: <%= current_user.email %>
+    </div><!-- End Admin tab -->
+</div><!-- End tabs container -->

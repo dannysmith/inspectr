@@ -2,16 +2,47 @@
 // This file is automatically included by javascript_include_tag :defaults
 
 $(function() {
-	//Adds a stylesheet for the tablesorter (but only if javascript is enabled.)
+	//Tablesorter code
 	$('head').append('<link rel="stylesheet" href="/stylesheets/tablesorter-blue/style.css" type="text/css" />');
-	
 	$(".tablesorter").tablesorter();
+	
+	//Round the corners of the container
 	$('#container').corner({
 				  tl: { radius: 10 },
 				  tr: { radius: 10 },
 				  bl: { radius: 10 },
 				  br: { radius: 10 }});
+				
+
+	//JQuery UI Tabs code.
+	$("#tabs_container").tabs();
+	
+	//Code to handle refocusing and checking boxes when a cadet is clicked.
+	//Subs Table
+	$('#subs_table tr').click(function(){
+		
+		if ($(this).find(':checkbox').length > 0) {
+			$box = $(this).find(':checkbox');
+			if ($box.is(':checked')) {
+				$box.attr('checked', false);
+			}
+			else {
+				$box.attr('checked', true);
+			}
+		} 
+		else {
+			$(this).find('.other_amount').focus();
+		}
+	});
+	
+	//Code to handle refocusing and checking boxes when a cadet is clicked.
+	//Inspection Table
+	$('#inspection_table tr').click(function(){
+		$(this).find('[id^=cadet_score]').select();
+	});
 });
+
+
 
   // rails auth token enabled in jquery
   $(document).ajaxSend(function(event, request, settings) {
@@ -27,7 +58,7 @@ $(function() {
 
 var parent_div_of_item;
 
-// Pops up tthe box.
+// Pops up the box.
 $(".popup").livequery('click',function(){
         parent_div_of_item = $(this).parent();
         $.get($(this).attr('href'),function(data){

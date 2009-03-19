@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  cadet_id: 1
+  ammount: 1.5
+  date: 2009-02-25 22:10:40
+
+two:
+  cadet_id: 1
+  ammount: 1.5
+  date: 2009-02-25 22:10:40

@@ -1,0 +1,20 @@
+<% form_for @cadet, :id=> "cadet_form" do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :firstname, "Name:"%>
+    <%= f.text_field :firstname, :size => 15  %>
+    <%= f.text_field :surname, :size => 25  %>
+  </p>
+  <p>
+    <%= f.label :email, "Email:" %>
+    <%= f.text_field :email, :size => 40  %>
+  </p>
+  <p>
+    <%= f.label :standing_order, "Standing Order?" %>
+    <%= f.check_box :standing_order %>
+    <%= f.label :discharged, "Discharged?"%>
+    <%= f.check_box :discharged %>
+    <%= hidden_field_tag :id, @cadet.id %>
+  </p>
+  <p><%= f.submit "Submit", :class => "submit" %></p>
+<% end %>

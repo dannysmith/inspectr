@@ -1,15 +1,30 @@
-<% title "Log in" %>
+<% title "subs & inspection management" %>
 
-<p>Don't have an account? <%= link_to "Sign up!", signup_path %></p>
+<div id="welcome_box">
+    <h3>what's it all about?</h3>
+    <p>Inspectr is a tool for managing <a href="aircadets.org">air cadets</a> monthly subscriptions and inspection records. The quickest way to see what it does and how it works is to <%= link_to "sign up", signup_path, :class => "popup" %> and create some cadets.</p>
+    <h3>who built it and why?</h3>
+    <p>Inspectr was built by Danny Smith, a Sergeant at <a href="http://brightonaircadets.com">226 (Brighton) Sqn</a>. It was born from frustration with the current system for recording subs and inspection results. Spreadsheets (or worse BADER) took up far too much time and energy, and didn't really do what was required.</p>
+    <h3>can I use it?</h3>
+    <p>Of course! Just <%= link_to "sign up for an account", signup_path, :class => "popup" %> and start adding cadets.</p>
+    <h3>it doesn't do what I want it to!</h3>
+    <p>Although this application is offered up for others to use, it was developed primarily for use at 226 Sqn. If you find something that's broken, or you really want a feature added (or you just want to say hi), send an email to <a href="mailto:danny@thescri.be">danny@thescri.be</a>!</p>
+    <p>The application is still under development and features will be added as and when they're needed. You can see the source code over at github.</p>
+</div>
+<div id="login_box">
+    <h4>Sign In</h4>
 
-<% form_tag sessions_path do %>
-  <p>
-    <%= label_tag :login, "Username or Email Address" %><br />
-    <%= text_field_tag :login, params[:login] %>
-  </p>
-  <p>
-    <%= label_tag :password %><br />
-    <%= password_field_tag :password %>
-  </p>
-  <p><%= submit_tag "Log in" %></p>
-<% end %>
+    <% form_tag sessions_path do %>
+      <p>
+        <%= label_tag :login, "Sqn number" %><br />
+        <%= text_field_tag :login, params[:login] %>
+      </p>
+      <p>
+        <%= label_tag :password %><br />
+        <%= password_field_tag :password %>
+      </p>
+      <p><%= submit_tag "Log in" %></p>
+    <% end %>
+    <p>Don't have an account? <%= link_to "Sign up!", signup_path, :class => "popup" %></p>
+    
+</div>

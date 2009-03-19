@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  cadet_id: 1
+  date: 2009-03-17
+  score: 1
+  authorized_absent: false
+
+two:
+  cadet_id: 1
+  date: 2009-03-17
+  score: 1
+  authorized_absent: false

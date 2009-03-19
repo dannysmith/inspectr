@@ -1,0 +1,17 @@
+one:
+  surname: MyString
+  firstname: MyString
+  user_id: 1
+  email: MyString
+  standing_order: false
+  date_added: 2009-02-25 11:27:23
+  discharged: false
+
+two:
+  surname: MyString
+  firstname: MyString
+  user_id: 1
+  email: MyString
+  standing_order: false
+  date_added: 2009-02-25 11:27:23
+  discharged: false

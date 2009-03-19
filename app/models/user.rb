@@ -17,6 +17,23 @@ class User < ActiveRecord::Base
   #Associations
   has_many :cadets, :dependent => :destroy
   
+  #Generates average score for accross all cadets from a specific squadron.
+  def average_score
+    count = 0.0
+    avrg = 0.0
+    if self.cadets.empty?
+      return 0.0
+    else
+      self.cadets.each do |cdt|
+        unless cdt.discharged?
+          avrg += cdt.average_score
+          count += 1.0
+        end
+      end
+      return count != 0.0 ? (avrg/count).round(1) : 0.0
+    end
+  end
+
   # login can be either username or email address
   def self.authenticate(login, pass)
     user = find_by_username(login) || find_by_email(login)
