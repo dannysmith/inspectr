@@ -13,6 +13,7 @@ TODO
 * Add AJAX to the edit cadet stuff.
 * Add AJAX to the Make payment screen.
 * Make flash messages fade after display.
+* Make form validation more robust.
 
 Add a reports tab for the following reports:
 
