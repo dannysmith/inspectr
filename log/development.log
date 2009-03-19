@@ -26332,3 +26332,23 @@ ActionController::RoutingError (No route matches "/stylesheets/tablesorter-blue/
   
 
 Rendering rescues/layout (not_found)
+
+
+Processing CadetsController#index (for 127.0.0.1 at 2009-03-19 19:48:09) [GET]
+Redirected to http://localhost:3000/login
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 40ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-03-19 19:48:09) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 28ms (View: 23, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-03-19 19:48:11) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/tablesorter-blue/style.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
