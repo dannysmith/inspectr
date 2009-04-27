@@ -1,7 +1,7 @@
 class InspectionController < ApplicationController
   
   def create
-    #looks at the params hash and creates new inspections for each cadet record.
+    #looks at the params hash and creates new inspections for each cadet record. Cool.
     ok = true
     params[:cadet_score].each do |id,score|
       insp = Cadet.find(id).inspections.new(:date => Date.today, :score => score)
